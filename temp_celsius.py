@@ -1,14 +1,18 @@
 import sys
-
-
-if len(sys.argv) != 2:
-    print("Usage: python temp_check.py <temperature_in_celsius>")
+if len(sys.argv) == 2:
+    script_name = sys.argv[0]
+    temp=sys.argv[1]
 else:
-    T = float(sys.argv[1]) 
+    script_name = sys.argv[0]
+    temp=25
+    print("Input not provided. Using default temperature.")
 
-    if T < 15:
-        print("Weather condition: Cold ")
-    elif 15 <= T <= 30:
-        print("Weather condition: Normal ")
-    else:
-        print("Weather condition: Hot ")
+print("Script Name:", script_name)
+print("Temperature:", temp,"*C")
+
+if int(temp) > 30:
+    print("Hot")
+elif int(temp)<=30 and int(temp)>=15:
+    print("Normal")
+else:
+    print("Cold")
